@@ -1,6 +1,7 @@
 import { MongoClient, ObjectId } from 'mongodb' // Documentación CRUD: https://mongodb.github.io/node-mongodb-native/6.2/
 import express from "express"
 
+
 const app = express()
 app.use(express.json())  // IMPORTANTE: SOPORTE PARA JSON
 
@@ -69,7 +70,7 @@ app.put('/api/users/:id', async (request, response) => {
 
 // DELETE
 app.delete('/api/users/:id', async (request, response) => {
-    const database =  client.db(DB_NAME);
+    const database = client.db(DB_NAME);
     const collection = database.collection(COLLECTION);
 
     const { id } = request.params
@@ -78,5 +79,5 @@ app.delete('/api/users/:id', async (request, response) => {
 })
 
 
-app.listen(PORT, () => console.log(`Servidor web iniciado en puerto ${PORT}`))
+app.listen(PORT, () => console.log(`OK. PUERTO: ${PORT}`))
 
