@@ -14,23 +14,23 @@ const COLLECTION = 'productos'
 
 const client = new MongoClient(DB_URL)
 
-app.get("/", (request, response) => {
-    response.redirect("/api/users")
-})
+// app.get("/", (request, response) => {
+//     response.redirect("/api/users")
+// })
 
 app.get("/", (request, response) => {
     response.redirect("/api/productos")
 })
 
 // GET
-app.get('/api/users', async (request, response) => {
-    const database = client.db(DB_NAME);
-    const collection = database.collection(COLLECTION);
+// app.get('/api/users', async (request, response) => {
+//     const database = client.db(DB_NAME);
+//     const collection = database.collection(COLLECTION);
 
-    const results = await collection.find({}).toArray()
+//     const results = await collection.find({}).toArray()
 
-    response.status(200).json(results)
-})
+//     response.status(200).json(results)
+// })
 
 app.get('/api/productos', async (request, response) => {
     const database = client.db(DB_NAME);
@@ -42,18 +42,18 @@ app.get('/api/productos', async (request, response) => {
 })
 
 // POST 
-app.post('/api/users', async (request, response) => {
-    if (!request.is('json'))
-        return response.json({ message: 'Debes proporcionar datos JSON' })
+// app.post('/api/users', async (request, response) => {
+//     if (!request.is('json'))
+//         return response.json({ message: 'Debes proporcionar datos JSON' })
 
-    const database = client.db(DB_NAME);
-    const collection = database.collection(COLLECTION);
+//     const database = client.db(DB_NAME);
+//     const collection = database.collection(COLLECTION);
 
-    const { nombre, edad } = request.body
-    const results = await collection.insertOne({ nombre, edad });
+//     const { nombre, edad } = request.body
+//     const results = await collection.insertOne({ nombre, edad });
 
-    return response.status(200).json(results)
-})
+//     return response.status(200).json(results)
+// })
 
 // POST 
 app.post('/api/productos', async (request, response) => {
@@ -70,15 +70,15 @@ app.post('/api/productos', async (request, response) => {
 })
 
 // GET 
-app.get('/api/users/:id', async (request, response) => {
-    const database = client.db(DB_NAME);
-    const collection = database.collection(COLLECTION);
+// app.get('/api/users/:id', async (request, response) => {
+//     const database = client.db(DB_NAME);
+//     const collection = database.collection(COLLECTION);
 
-    const { id } = request.params
-    const results = await collection.find({ _id: new ObjectId(id) }).toArray()
+//     const { id } = request.params
+//     const results = await collection.find({ _id: new ObjectId(id) }).toArray()
 
-    response.status(200).json(results)
-})
+//     response.status(200).json(results)
+// })
 // GET 
 app.get('/api/productos/:id', async (request, response) => {
     const database = client.db(DB_NAME);
@@ -90,20 +90,20 @@ app.get('/api/productos/:id', async (request, response) => {
     response.status(200).json(results)
 })
 
-// PUT
-app.put('/api/users/:id', async (request, response) => {
-    if (!request.is('json'))
-        return response.json({ message: 'Debes proporcionar datos JSON' })
+// // PUT
+// app.put('/api/users/:id', async (request, response) => {
+//     if (!request.is('json'))
+//         return response.json({ message: 'Debes proporcionar datos JSON' })
 
-    const database = client.db(DB_NAME);
-    const collection = database.collection(COLLECTION);
+//     const database = client.db(DB_NAME);
+//     const collection = database.collection(COLLECTION);
 
-    const { id } = request.params
-    const { nombre, edad } = request.body
-    const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, edad } });
+//     const { id } = request.params
+//     const { nombre, edad } = request.body
+//     const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, edad } });
 
-    response.status(200).json(results)
-})
+//     response.status(200).json(results)
+// })
 
 app.put('/api/productos/:id', async (request, response) => {
     if (!request.is('json'))
@@ -119,15 +119,15 @@ app.put('/api/productos/:id', async (request, response) => {
     response.status(200).json(results)
 })
 
-// DELETE
-app.delete('/api/users/:id', async (request, response) => {
-    const database = client.db(DB_NAME);
-    const collection = database.collection(COLLECTION);
+// // DELETE
+// app.delete('/api/users/:id', async (request, response) => {
+//     const database = client.db(DB_NAME);
+//     const collection = database.collection(COLLECTION);
 
-    const { id } = request.params
-    const results = await collection.deleteOne({ _id: new ObjectId(id) })
-    response.status(200).json(results)
-})
+//     const { id } = request.params
+//     const results = await collection.deleteOne({ _id: new ObjectId(id) })
+//     response.status(200).json(results)
+// })
 
 
 app.delete('/api/productos/:id', async (request, response) => {
