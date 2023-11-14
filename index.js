@@ -64,7 +64,7 @@ app.post('/api/productos', async (request, response) => {
     const collection = database.collection(COLLECTION);
 
     const { nombre, precio } = request.body
-    const results = await collection.insertOne({ nombre, edad });
+    const results = await collection.insertOne({ nombre, precio });
 
     return response.status(200).json(results)
 })
@@ -114,7 +114,7 @@ app.put('/api/productos/:id', async (request, response) => {
 
     const { id } = request.params
     const { nombre, precio } = request.body
-    const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, edad } });
+    const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, precio } });
 
     response.status(200).json(results)
 })

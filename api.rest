@@ -26,16 +26,16 @@ content-type: application/json
 
 ###
 
-GET https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/users HTTP/1.1
+GET https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/productos HTTP/1.1
 content-type: application/json
 
 ###
 
-PUT https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/users HTTP/1.1
+PUT https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/productos HTTP/1.1
 content-type: application/json
 
 { 
-    "nombre": "José Antonio", 
+    "nombre": "mamut", 
     "edad": 32 
 }
 
@@ -89,7 +89,7 @@ Content-Type: application/json
 
 {
     "nombre": "mojon",
-    "precio": 200
+    "precio": 250
 }
 
 
