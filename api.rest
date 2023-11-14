@@ -77,7 +77,7 @@ POST https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/productos HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": "6",
+    
     "nombre": "Nuevo Producto",
     "precio": 30
 }
@@ -88,7 +88,6 @@ PUT https://api-mongodb-dev-epqh.1.us-1.fl0.io/api/productos HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": ,
     "nombre": "mojon",
     "precio": 200
 }
